@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Owin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0b3d0b, #145214);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .open-btn {
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50px;
+      background-color: #2e8b57;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+    .open-btn:hover {
+      background-color: #3fa76b;
+      transform: scale(1.05);
+    }
+    .letter {
+      display: none;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: fadeIn 1.5s ease forwards;
+    }
+    .letter img {
+      width: 200px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* floating guitars */
+    .guitar {
+      position: absolute;
+      font-size: 30px;
+      opacity: 0.2;
+      color: white;
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="open-btn" onclick="openLetter()">Open</button>
+    <div class="letter" id="letter">
+      <img src="https://i.imgur.com/ZVbHk0h.png" alt="Picture">
+      <p>happy, happy birthday owin!  
+      i really hope you enjoy your special day because you truly deserve to be happy.</p>
+
+      <p>i also want to take this chance to be honest about what i feel. i can’t really say that i like you so much yet, since we haven’t had many chances to talk or really get to know each other. it’s always been a little strange for me to like someone right away without really talking to them first. but still… i do have a crush on you, and i’m genuinely interested in getting to know you more.</p>
+
+      <p>maybe it seems like i feel this way because of our past — and in a way, those memories still cling to me — but what i admire right now is not who you were before, it’s who you are now. it’s not the owin i once fell in love with before… it’s the sham i admire right now. please don’t think that it’s just because of the past. i admire you for who you are now, and i want you to know that clearly.</p>
+
+      <p>if you’re confused why iris is the song, it’s because this is the song i dedicated to you before, and even until now. the first lyrics of the song already say it all.</p>
+
+      <p>i’m not expecting anything in return, and i don’t want you to feel pressured in any way. you don’t have to force yourself to feel the same. i just wanted to be honest and let you know what i truly feel. if ever i’ll be given the chance to get to know you more, i’d really love that.</p>
+
+      <p>once again, happy birthday owin!  
+      i hope your day is filled with love, joy, and all the things that make you happiest.</p>
+    </div>
+  </div>
+
+  <audio id="bg-music" src="https://www.youtube.com/embed/NdYWuo9OFAw?autoplay=1" preload="auto"></audio>
+
+  <script>
+    function openLetter() {
+      document.querySelector('.open-btn').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+      // background music
+      let music = new Audio("https://dl.dropboxusercontent.com/scl/fi/wtz6kjyq9pp0z1u4mb0f1/iris.mp3?rlkey=5yq9j4iqd3v7lz5hl7rpz3qj7&dl=0");
+      music.play();
+
+      // floating guitars
+      for (let i = 0; i < 15; i++) {
+        let guitar = document.createElement('div');
+        guitar.classList.add('guitar');
+        guitar.innerHTML = "🎸";
+        guitar.style.left = Math.random() * 100 + "vw";
+        guitar.style.animationDuration = 8 + Math.random() * 5 + "s";
+        guitar.style.fontSize = 20 + Math.random() * 30 + "px";
+        document.body.appendChild(guitar);
+      }
+    }
+  </script>
+</body>
+</html>
